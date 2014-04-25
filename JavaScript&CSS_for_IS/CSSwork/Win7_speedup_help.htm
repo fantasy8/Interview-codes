@@ -1,0 +1,91 @@
+<html> 
+<head> 
+<title>Win 7 Speedup Project Help</title> 
+<style type="text/css"> 
+#container { 
+    width: 650px; 
+    border: solid;  border-width: thin; padding-right: 10px;
+    padding-left: 10px; padding-top: 5px; padding-bottom: 10px;
+}
+#col_one { 
+    width: 290px;
+    margin: 10px;
+    float: left;
+    background-color: yellow;
+    text-align: justify; 
+} 
+#col_two { 
+    width: 290px;
+    margin: 10px;
+    float: left;
+    background-color: azure;
+    text-align: justify;   
+} 
+/* Note: adding larger margins or padding to columns requires that you decrease the width setting proportionally, 
+that is why the width is currently set to 18%. If you add padding to the container, the same applies. */ 
+</style> 
+</head> 
+
+<body> 
+I Googled this phrase: "css multiple columns using divs"<br>
+I got many thousands of hits , these are the 3 sites that gave me some good advice:
+<ol>
+<li><a href="http://stackoverflow.com/questions/10676881/how-to-create-multiple-columns-in-a-div">
+http://stackoverflow.com/questions/10676881/how-to-create-multiple-columns-in-a-div</a>
+<li><a href="http://stackoverflow.com/questions/2619388/css-multiple-multi-column-divs">
+http://stackoverflow.com/questions/2619388/css-multiple-multi-column-divs</a>
+<li><a href="http://www.webmasterworld.com/css/3418008.htm">
+http://www.webmasterworld.com/css/3418008.htm</a>
+</ol>
+
+Experimenting with the advice from these sites I came up with this layout sample that we can use to recreate the Windows 7  project.
+<br><br>
+<div id="container"> 
+
+<div id="col_one">Column One Column One Column One 
+Column One Column One Column One Column One Column One 
+Column One Column One Column One Column One</div> 
+
+<div id="col_two">Column Two Column Two Column Two 
+Column Two Column Two Column Two Column Two Column Two</div> 
+
+</div> 
+Note: you will have to span tags to change the size of the the tip number to 24pt and to change the size of the tip title to 14pt.
+<br><br>
+Here is the html markup
+<div style="width: 650px; border: solid; border-width: thin;">
+<pre>
+#container { 
+    width: 650px; 
+    border: solid;  border-width: thin; padding-right: 10px;
+    padding-left: 10px; padding-top: 5px; padding-bottom: 10px;
+}
+#col_one { 
+    width: 290px;
+    margin: 10px;
+    float: left;
+    background-color: yellow;
+    text-align: justify; 
+} 
+#col_two { 
+    width: 290px;
+    margin: 10px;
+    float: left;
+    background-color: azure;
+    text-align: justify;   
+} 
+
+&lt;div id="container"&gt; 
+
+   &lt;div id="col_one"&gt;Column One Column One Column One 
+   Column One Column One Column One Column One Column One 
+   Column One Column One Column One Column One&lt;/div&gt; 
+
+   &lt;div id="col_two"&gt;Column Two Column Two Column Two 
+   Column Two Column Two Column Two Column Two Column Two&lt;/div&gt; 
+
+&lt;/div&gt; 
+</pre>
+</div>
+</body> 
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="jquery.1.8.3.min.js"></script>
+    <script>
+
+        var Image = new Array("1.jpg","2.jpg","3.jpg","4.jpg");
+        var description = new Array("A red devil Mask", "An alien", "A Girl", "Superman");
+        var Image_Number=0;
+        var Image_Length= Image.length-1;
+        var Interval;
+
+        function change_image(num){
+
+
+
+            Image_Number=Image_Number+num;
+            if(Image_Number>Image_Length){
+                Image_Number=0;
+            }
+            if(Image_Number<0){
+                Image_Number=Image_Length;
+            }
+
+
+
+            $("#slideshow").fadeOut('slow',function(){
+                $(this).attr('src',Image[Image_Number]);
+                $("#description").html(description[Image_Number]);
+
+            }).fadeIn('slow');
+
+
+
+
+        }
+
+        function play()
+        {
+            document.getElementById("play_stop").innerHTML = '<a href="javascript:stop()">Stop</a>';
+            Interval = setInterval("change_image(1)",3000);
+        }
+
+        function stop(){
+            document.getElementById("play_stop").innerHTML = '<a href="javascript:play()">Play</a>';
+            clearInterval(Interval);
+        }
+
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <img src="1.jpg" id="slideshow" width="260" height="300"/>
+    <p id="description">A devil mask</p>
+<table>
+    <tr>
+        <td align="left"><a href="javascript:change_image(-1)">Previous</a></td>
+        <td align="right"><a href="javascript:change_image(1)">Next</a></td>
+        <td id="play_stop" align="left"><a href="javascript:play()">Play</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

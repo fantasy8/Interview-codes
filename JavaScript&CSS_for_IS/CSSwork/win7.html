@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>Win 7</title>
+</head>
+<style>
+    .wrapper {
+        width: 600px;
+        height:750px;
+        border: 3px solid black;
+        margin-left: 30px;
+        font-family: times;
+
+    }
+
+    .item {
+        height: 400px;
+        width: 280px;
+        margin: 20px 8px;
+        float: left;
+        }
+
+    .item t1 {font-size: 20; color: green; font-weight: normal; margin:0px; padding:0px; }
+    .item span {font-size: 32px;}
+    p {margin-top: 0}
+  #procedure {margin-left: 30px}
+  #procedure ul {list-style-type: decimal; width:600px}
+
+</style>
+
+<body>
+<span id="top">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThese tips are taken from the August 2012 issue of MaximumPC magazine(pages 24-33)</span>
+<div class="wrapper">
+
+    <div class="item"><t1><span>26</span> SPOT HIDDEN WINDOWS</t1>
+        <p>Sometimes programs display a message asking you to do something, but that message is
+        under  another  window  and  you  don't  see  it.
+        You're  waiting  for  the  program,  its  waiting
+        for you, so nothing happens. The window is
+        made  visible  after  200  seconds  but  you  can
+        shorten  the  delay.  Launch  regedit  from  the
+        Start  menu,  go  to
+        HKEY_CURRENT_USER\
+        Control  Panel  \Desktop,  double-click
+        ForegroundLockTimeout  and  select
+        Decimal.  Change  the  value  to  30,000
+        miliseconds(30 seconds).</p>
+        <t1><span>27</span> SAVE A REGISTRY KEY</t1>
+        <p>Sometimes  a  change  to  a  registry  key  does
+        not go as planed. It's quick and easy to return
+        to the key you changed if you've saved it to
+        Regedit's  editing  window.  Click  Add  to
+        Favorites,  give  it  a  descriptive  name,  and
+        tweak  away  knowing  that  changes  can  be
+        undone in seconds.</p>
+
+        <t1><span>41</span> SOLVE SLOW STARTS</t1>
+        <p>If Windows 7 is taking a long time to launch,
+        or shut down, the Event Viewer may tell you
+        which  program  or  driver  is  responsible.
+        Click  Start,  type  Eventvwr.msc,  and  press
+        Return.  Expand  the  Applications  and
+        Services  Logs  section  and  browse  to  the
+        Microsoft\Windows\Diagnostic
+        Performance\Operational.  Scroll  the  event
+        list  on  your  PC  to  see  if  Windows  knows
+        who to blame for your performance issues.</p>
+    </div>
+    <div class="item">
+        <t1><span>45</span> RESTORE RUN</t1>
+        <p>If  you  miss  the  Windows  XP  Run  option
+        which was used by many to launch programs
+        quickly,  right-click  the  Start  orb,  select
+        Properties->Customize,  check  the  Run
+        Command  box,click  OK  and  a  Run  option
+        should now appear on the Start menu.</p>
+        <t1><span>46</span> LAUNCH APPLETS FAST</t1>
+        <p>Don't  waste  time  browsing  to  the  Control
+        Panel  for  the  right  tool  for  making  changes
+        to  your  computer  when  you  can  launch  it
+        directly.  To  run  Device  Manager,  for
+        example,  click  Start,  type  Device  in  the
+        search  box  and  Windows  should  display  a
+        Device manager link for you. Windows also
+        responds  to  vague  searches,  so  if  you  type
+        partition,  the  disk  management  tool  will  be
+        listed.</p>
+        <t1><span>72</span> SPEED UP SEARCHES</t1>
+        <p>Right-click  the  Start  button  and  select
+        Properties. Click Customize, scroll down the
+        list  of  available  options  and  select  "Search
+        without  public  folders"  under  "Search  other
+        files  and  libraries".  Click  OK  and  results
+        should appear  much quicker  than before, as
+        there  are  far  fewer  places  to  search.  Public
+        folders  are  rarely  used  by  most  people  so
+        axing them in search is a cost-free speed up
+        trick.  which  was  used  by  many  to  launch
+        programs  quickly,  right-click  the  Start  orb,
+        select Properties->Customize, check the Run
+        Command  box,click  OK  and  a  Run  option
+        should now appear on the Start menu.</p>
+    </div>
+
+</div>
+<div id="procedure">
+    <h3>Procedure</h3>
+    <ul>
+        <li>Do tips 26 and 27 in tandem. Follow 27 to save the ForegroundLockTimeout key and then restore it
+            when done. </li>
+        <li>When doing tip 41 you will also be doing tip 46.<br>
+            Look out for event IDs 100 and any events in the 101-109 range for startup problems </li>
+        <li>Do tip 72 and see if it really makes a differencein terms of speed.<br>Enter event in the search box and see if the event viewer comes up.  </li>
+        <li>Do tip 45 and enter c: in the run textbox.</li>
+        <li>Look through the other tips on the archived pdf file and attempt at least 2 other tips.</li>
+        <li>Record your picks below:</li><br>
+        Tip id: _____ did it work: ____________________________________________________<br><br>
+        Tip id: _____ did it work: ____________________________________________________
+    </ul>
+</div>
+</body>
+</html>

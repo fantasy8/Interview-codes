@@ -1,0 +1,244 @@
+<html>
+<head>
+    <body>
+    <h2>Box Lot Calsulator</h2>
+    <form name="frm1">
+        <table>
+            <tr>
+                <td>
+                    <LABEL FOR="qty" ACCESSKEY="Q"><U>Q</U>ty::</LABEL>
+
+                </td>
+                <td>
+                <input type="text" name="qty" size=10 maxlength=10 value="" accesskey="q">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <LABEL FOR="lotsize" ACCESSKEY="L"><U>L</U>ot Size:</LABEL>
+
+                </td>
+                <td>
+                    <input type="text" name="lotsize" size=10 maxlength=10 value="" accesskey="l">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Boxes:
+                </td>
+                <td>
+                    <input type="text" name="boxes" size=10 maxlength=10 value="" accesskey="n">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Qty Left:
+                </td>
+                <td>
+                    <input type="text" name="qtyleft" size=10 maxlength=10 value="" accesskey="n">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <input type="button" value="Calculate" onclick="calculate1()">
+                <input type="reset" value=" Clear ">
+                </td>
+            </tr>
+
+
+        </table>
+    </form>
+    <script language ="javascript">
+        function calculate1(){
+            var qty, lotsize, boxes, qtyleft;
+            qty = parseInt(document.frm1.qty.value);
+            lotsize = parseInt(document.frm1.lotsize.value);
+            boxes = Math.floor(qty / lotsize);
+            qtyleft = qty - (boxes*lotsize);
+            document.frm1.boxes.value = boxes;
+            document.frm1.qtyleft.value = qtyleft;
+        }
+    </script>
+
+
+
+    <form name="frm2">
+        <h2>Payroll Calculator</h2>
+        <table>
+            <tr>
+                <td>
+                    <LABEL FOR="name" ACCESSKEY="N"><U>N</U>ame:</LABEL>
+                </td>
+                <td>
+                    <input type="text" name="name" size=15 maxlength=10 value="" accesskey="N">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <LABEL FOR="hours" ACCESSKEY="N"><U>H</U>ours:</LABEL>
+
+                </td>
+                <td>
+                    <input type="text" name="hours" size=6 maxlength=10 value="" accesskey="H">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <LABEL FOR="payrate" ACCESSKEY="P"><U>P</U>ay Rate::</LABEL>
+
+                </td>
+                <td>
+                    <input type="text" name="payrate" size=6 maxlength=10 value="" accesskey="P">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Marital Status:
+                </td>
+                <td>
+                    <input type="radio" name="ms" value="s" >Single
+                    <input type="radio" name="ms" value="m">Married
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Dependents:
+                </td>
+                <td>
+
+                    <select name="dependents">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gross Pay:
+                </td>
+                <td>
+                    <input type="text" name="grosspay" size=7 maxlength=10 value="" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fed Taxes:
+                </td>
+                <td>
+                    <input type="text" name="fedtaxes" size=7 maxlength=10 value="" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Net Pay:
+                </td>
+                <td>
+                    <input type="text" name="netpay" size=7 maxlength=10 value="" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <input type="button" value="Calculate" onclick="calculate2()">
+                <input type="reset" value=" Clear ">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+    <script language ="javascript">
+
+        function calculate2(){
+            var grosspay,hours, payrate, taxes, netpay, ms, dependent;
+            payrate =  parseFloat(document.frm2.payrate.value);
+            hours = parseFloat(document.frm2.hours.value);
+            if (document.frm2.ms[0].checked) ms = .3;
+            if (document.frm2.ms[1].checked) ms = .2;
+            var e = document.frm2.dependents;
+            dependent = e.options[e.selectedIndex].value;
+
+            grosspay = payrate * hours;
+            taxes = grosspay * ms - 10*dependent;
+            netpay = grosspay - taxes;
+
+            document.frm2.grosspay.value = grosspay.toFixed(2);
+            document.frm2.fedtaxes.value = taxes.toFixed(2);
+            document.frm2.netpay.value = netpay.toFixed(2);
+
+        }
+    </script>
+
+
+    <h2>How your money grows</h2>
+    <form name="frm3">
+        <table>
+            <tr>
+                <td>
+                    Principle
+
+                </td>
+                <td>
+                    Annual Rate
+
+                </td>
+                <td>
+                    Final Amount
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="pr" size=10 maxlength=10 value="">
+                </td>
+                <td>
+                    <input type="text" name="ar" size=10 maxlength=10 value="" >
+                </td>
+                <td>
+                    <input type="text" name="fa" size=10 maxlength=10 value="" >
+                </td>
+            </tr>
+             </table>
+        <table>
+
+            <tr>
+                <td>
+                    <input type="radio" name="yr" value="1" >1 yr
+                    <input type="radio" name="yr" value="2">2 yrs
+                    <input type="radio" name="yr" value="3" >3 yrs
+                    <input type="radio" name="yr" value="4">4 yrs
+                    <input type="radio" name="yr" value="5">5 yrs
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Calc" onclick="calculate3()">
+                    <input type="reset" value=" Clear ">
+                </td>
+            </tr>
+
+
+        </table>
+    </form>
+    <script language ="javascript">
+        function calculate3(){
+            var pr, ar, fa, yr;
+            pr = parseFloat(document.frm3.pr.value);
+            ar = parseFloat(document.frm3.ar.value);
+            if (document.frm3.yr[0].checked) yr = 1;
+            if (document.frm3.yr[1].checked) yr = 2;
+            if (document.frm3.yr[2].checked) yr = 3;
+            if (document.frm3.yr[3].checked) yr = 4;
+            if (document.frm3.yr[4].checked) yr = 5;
+            for (var i=1; i<=yr; i++) {pr =  pr * (1+ar)}
+            document.frm3.fa.value = "$"+pr.toFixed(2);
+        }
+    </script>
+
+
+    </body>
+</head>
+</html>

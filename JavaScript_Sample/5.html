@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function show(){
+	
+            var str1=document.getElementById("textbox1").value.split(',');
+            var str2=document.getElementById("textbox2").value.split(',');
+            var str3=document.getElementById("textbox3").value.split(',');
+            var str4=document.getElementById("textbox4").value.split(',');
+            var str5=document.getElementById("textbox5").value.split(',');
+            //store in an array
+			var arrayli=[str1,str2,str3,str4,str5];
+            var re = intersect(arrayli[0],arrayli[1]);
+			//for loop for future expansion
+            for (i=2;i<arrayli.length;i++){
+                re=intersect(re,arrayli[i]);
+            }
+            document.getElementById('output').innerHTML=re.toString();
+
+        }
+		
+		//intersect two arrays
+        function intersect(arr1,arr2){
+            var results =[];
+            for (var i = 0; i < arr1.length; i++) {
+                if (arr2.indexOf(arr1[i]) !== -1) {
+                    results.push(arr1[i]);
+                }
+            }
+            return results;
+
+
+        }
+
+    </script>
+</head>
+<body>
+<h1 id="h1">5. Intersect</h1>
+<input type="text" id="textbox1"/> <br> <h3>
+    <input type="text" id="textbox2"/> <br><h3>
+    <input type="text" id="textbox3"/> <br><h3>
+    <input type="text" id="textbox4"/> <br><h3>
+    <input type="text" id="textbox5"/> <br><h3>
+    <button type="button" onclick="show()">Show</button>
+    <h1 id="output"></h1>
+</body>
+</html>

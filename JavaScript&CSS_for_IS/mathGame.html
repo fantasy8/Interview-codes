@@ -1,0 +1,192 @@
+<html>
+<head><title>Javascript Inclass Pgm3</title>
+    <style>
+        .txtbox {font-size: 36pt;
+            text-align: center;
+            width: 110px;
+        }
+        .txtoper {font-size: 36pt;
+            text-align: center;
+            width: 35px;
+        }
+
+    </style>
+    <script>
+
+        var intRight, intWrong, inta, intb;
+        var key; var answer;
+        var ta, tb;
+        window.onload = function() {
+            // attach the click event handler to the radio buttons
+            //alert("click");
+            var radios = document.forms[0].elements["optGrade"];
+            for (var i = [0]; i < radios.length; i++)
+                radios[i].onclick=radioClicked;
+            radios = document.forms[0].elements["optType"];
+            for (var i = [0]; i < radios.length; i++)
+                radios[i].onclick=radio2Clicked;
+
+
+
+            SetUpGame();
+            intRight = 0;
+            intWrong = 0;
+
+
+
+        }
+        function radioClicked() {
+            SetUpGame();
+        }
+        function radio2Clicked() {
+            if (document.frmgame.optType[0].checked){
+            document.getElementById("opr").innerHTML="+"
+        }
+            if (document.frmgame.optType[1].checked){
+                document.getElementById("opr").innerHTML="-"
+            }
+            if (document.frmgame.optType[2].checked){
+                document.getElementById("opr").innerHTML="*"
+            }
+            if (document.frmgame.optType[3].checked){
+                document.getElementById("opr").innerHTML="/"
+
+            }
+        }
+        function BeginGame()
+        {
+            //alert("BeginGame");
+        }
+        function Checkit()
+        {
+
+
+            answer = parseInt(document.frmgame.txtc.value);
+            ta = parseInt(document.frmgame.txta.value);
+            tb = parseInt(document.frmgame.txtb.value);
+            if (document.frmgame.optType[0].checked){
+                key = ta+tb;
+            }
+            if (document.frmgame.optType[1].checked){
+                key = ta-tb;
+            }
+            if (document.frmgame.optType[2].checked){
+                key = ta*tb;
+            }
+            if (document.frmgame.optType[3].checked){
+                key = Math.floor(ta/tb);
+            }
+
+            if (answer == key)
+            {
+                intRight++;
+                alert("right");
+            }
+            else
+            {
+                intWrong++
+                alert("Wrong")
+            }
+
+            SetUpGame();
+
+        }
+
+        function Showscr() {
+            if (document.frmgame.showscore.checked)
+            {
+            document.frmgame.right.value = intRight;
+            document.frmgame.wrong.value = intWrong;
+            }
+            else
+            {
+                document.frmgame.right.value = "";
+                document.frmgame.wrong.value = "";
+
+            }
+
+        }
+        function RadioButtonChange(rb)
+        {
+            alert('radio button ' + rb.value + ' was clicked');
+            SetUpGame();
+        }
+        function SetUpGame()
+        {
+
+            if (document.frmgame.optGrade[0].checked)
+            {
+                inta = 1 + Math.floor(Math.random() * 10);
+                intb = 1 + Math.floor(Math.random() * 10);
+
+
+            }
+            else
+            {
+                inta = Math.floor(Math.random() * 91) + 10;
+                intb = Math.floor(Math.random() * 91) + 10;
+            }
+            document.frmgame.txta.value = inta;
+            document.frmgame.txtb.value = intb;
+            document.frmgame.txtc.value = "";
+        }
+
+
+    </script>
+</head>
+<body bgcolor="white" >
+<form name="frmgame">
+    <fieldset style="width:400px; background-color: white;">
+        <legend>Math Game</legend>
+        <br>
+        <input type="text" name="txta" class="txtbox"
+               maxlength=3 size=3 value="1" readonly/>
+        <span class = "txtoper" id ="opr">+</span>
+        <input type="text" name="txtb" class="txtbox"
+               maxlength=3 size=3 value="1" readonly/>
+        <span class = "txtoper">=</span>
+        <input type="text" name="txtc" class="txtbox"
+               maxlength=3 size=3  />
+
+        <br><br>
+        <input type="button" value="Check" onclick="Checkit()"/>
+        <br><br>
+
+
+        <br><br>
+        <fieldset style="width:150px;">
+            <legend>Game Difficulty</legend>
+            <input type="radio" name="optGrade" value="grade1"
+                   checked/>Grade 1(1-10)<br>
+            <input type="radio" name="optGrade" value="grade2"
+                   />Grade 2(10-100)
+        </fieldset>
+
+        <fieldset style="width:150px;">
+            <legend>Math Operation</legend>
+            <input type="radio" name="optType" value="grade1"
+                   checked />Addition<br>
+            <input type="radio" name="optType" value="grade2"
+                   />Subtraction<br>
+            <input type="radio" name="optType" value="grade2"
+                  />Multiplication<br>
+            <input type="radio" name="optType" value="grade2"
+                  />Division
+        </fieldset>
+        <br>
+        <input type="checkbox" name="showscore" value ="showscore"
+                onClick="Showscr()"/>Show Score
+        <fieldset style="width:150px;">
+            <legend>Your Score</legend>
+            Right: <input type="text" name="right"
+                   maxlength=3 size=3 value="" /><br>
+            Wrong: <input type="text" name="wrong"
+                          maxlength=3 size=3 value="" />
+        </fieldset>
+        <br>
+        &nbsp;
+    </fieldset>
+
+</form>
+</body>
+</html>

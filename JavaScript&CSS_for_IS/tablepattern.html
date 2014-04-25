@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        #mytable {width:300px; border: 1pt solid black;}
+        #mytable tr {height: 50px;}
+        #mytable td {width:20%; border: 1px solid black;}
+        div {float: left; padding-left: 15px; text-align: center;}
+        .control {margin-top: 30px;}
+    </style>
+    <script>
+        function myFunction()
+        {
+            var pt, cr;
+            for (i = 0; i < control.pattern.length; i++){
+                if (control.pattern[i].checked)
+                    pt=i;
+            }
+
+            for (i = 0; i < control.color.length; i++){
+                if (control.color[i].selected)
+                    cr=control.color[i].value;
+            }
+
+            if (pt==0) plus(cr);
+            if (pt==1) x(cr);
+            if (pt==2) h(cr);
+
+
+
+        }
+
+        function plus(color){
+
+
+            document.getElementById("mytable").getElementsByTagName("tr")[0].cells[2].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[1].cells[2].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[2].cells[2].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[3].cells[2].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[4].cells[2].style.backgroundColor=color;
+
+            document.getElementById("mytable").getElementsByTagName("tr")[2].style.backgroundColor=color;
+        }
+
+        function x(color){
+
+
+            document.getElementById("mytable").getElementsByTagName("tr")[0].cells[0].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[0].cells[4].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[1].cells[1].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[1].cells[3].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[2].cells[2].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[3].cells[1].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[3].cells[3].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[4].cells[0].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[4].cells[4].style.backgroundColor=color;
+        }
+
+
+        function h(color){
+
+
+            document.getElementById("mytable").getElementsByTagName("tr")[0].cells[0].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[1].cells[0].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[2].cells[0].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[3].cells[0].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[4].cells[0].style.backgroundColor=color;
+
+
+            document.getElementById("mytable").getElementsByTagName("tr")[0].cells[4].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[1].cells[4].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[2].cells[4].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[3].cells[4].style.backgroundColor=color;
+            document.getElementById("mytable").getElementsByTagName("tr")[4].cells[4].style.backgroundColor=color;
+
+            document.getElementById("mytable").getElementsByTagName("tr")[2].style.backgroundColor=color;
+        }
+
+        function cle()
+        {
+           var otable=document.getElementById("mytable");
+            var introw, orow, intcol, ocol;
+            for (introw=0; introw<otable.rows.length; introw++){
+                orow=otable.rows[introw];
+                for (intcol=0;intcol<orow.cells.length; intcol++){
+                    ocol=orow.cells[intcol];
+                    ocol.style.background="white";
+                }
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<div>
+<table id="mytable">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+</table>
+    <form name="buttons">
+    <button type="button" id="colorit" onclick="myFunction()">Color It</button>
+    <button type="button" id="clear" onclick="cle()">Clear</button>
+    </form>
+</div>
+<div class="control">
+    <form name="control">
+    Pattern  Choice:<br>
+    <input type="radio" name="pattern" value="plus"> Plus sign<br>
+    <input type="radio" name="pattern" value="x"> Letter X<br>
+    <input type="radio" name="pattern" value="h"> Letter H<br>
+    <br>
+    Color Choice:<br>
+    <select name="color" multiple size="5">
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Green">Green</option>
+        <option value="Orange">Orange</option>
+    </select>
+    </form>
+
+</div>
+</body>
+</html>

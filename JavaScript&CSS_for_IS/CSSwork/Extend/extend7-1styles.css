@@ -1,0 +1,4 @@
+a {color:red; font-weight: bold; text-decoration: none;}
+h1 {color: red;}
+p { margin-left: 40px; margin-right: 40px;}
+a:hover {color:blue; background-color: red;}
